@@ -80,7 +80,7 @@ const NavigateCard = () => {
 
                 setLocEntered(false);
             }}
-            style={tw`mt-2 text-lg font-semibold`}
+            style={tw`mt-2 font-semibold`}
         >{ title }</Text>
         </View>
         </TouchableOpacity>

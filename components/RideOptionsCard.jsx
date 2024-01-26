@@ -11,19 +11,19 @@ const data = [
         id: "Uber-X-123",
         title: "UberX",
         multiplier: 1,
-        image: "https://links.papareact.com/3pn"
+        image: require('../assets/ride_x.png'),
     },
     {
         id: "Uber-XL-456",
         title: "Uber XL",
         multiplier: 1.2,
-        image: "https://links.papareact.com/5w8"
+        image: require('../assets/ride_xl.png'),
     },
     {
         id: "Uber-LUX-789",
         title: "Uber LUX",
         multiplier: 1.75,
-        image: "https://links.papareact.com/7pf"
+        image: require('../assets/ride_lux.png'),
     }
 ]
 
@@ -63,7 +63,7 @@ const RideOptionsCard = () => {
                                 height: 100,
                                 resizeMode: "contain"
                             }}
-                            source={{ uri: image}}
+                            source={image}
                         />
                         <View style={tw`-ml-3 mr-3`}>
                             <Text style={tw`text-xl font-semibold`}>{ title }</Text>

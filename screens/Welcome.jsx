@@ -11,7 +11,7 @@ const data = [
         id: "123",
         title: "Welcome to Uber Clone",
         bulletPoints: "Here you can set origin and destination locations",
-        image: "https://links.papareact.com/3pn",
+        image: require('../assets/ride.png'),
         screen: "MapScreen"
     }
 ]
@@ -31,7 +31,7 @@ const Item = ({image, title, screen, nav, hasOrigin, bulletPoints }) => (
 
       <Image 
         style={{ width: 120, height: 120, resizeMode: 'contain' }}
-        source={{ uri: image}}
+        source={image}
       />
 
       <Icon 

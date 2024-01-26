@@ -80,7 +80,7 @@ export default function HomeScreen() {
                 dispatch(setDestination(null));
                 setLocEntered(false);
             }}
-            style={tw`mt-2 text-lg font-semibold`}
+            style={tw`mt-2 font-semibold`}
         >{ title }</Text>
         </View>
         </TouchableOpacity>
@@ -96,9 +96,7 @@ export default function HomeScreen() {
                 style={{
                     width: 100, height: 100, resizeMode: 'contain'
                 }}
-                source={{
-                    uri: "https://links.papareact.com/gzs",
-                }}
+                source={require('../assets/uber_logo_black.png')}
             />
 
             {!userData?.driverEnabled && (
@@ -130,6 +128,7 @@ export default function HomeScreen() {
 
             {locEntered &&
                 <FlatList
+                    style={tw`ml-1`}
                     data={locItems}
                     keyExtractor={item => item.place_id}
                     renderItem={({item}) => <Item 
@@ -181,12 +180,13 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: 'gray',
         borderRadius: 8,
-        padding: 8,
+        padding: 10,
     },
     button: {
-        backgroundColor: 'blue',
+        backgroundColor: 'black',
         padding: 8,
         borderRadius: 8,
+        borderWidth: 1,
     },
     buttonText: {
         color: 'white',

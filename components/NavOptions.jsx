@@ -6,22 +6,23 @@ import { useNavigation } from '@react-navigation/native';
 import { useSelector } from "react-redux";
 import { selectOrigin } from "../slices/navSlice";
 import { useAuthentication } from '../utils/hooks/useAuthentication';
+import rideImage from '../assets/ride.png';
 
 const nonDriverData = [
     {
         id: "123",
         title: "Get a ride",
         mode: "user",
-        image: "https://links.papareact.com/3pn",
+        image: require('../assets/ride.png'),
         screen: "MapScreen"
     },
-    {
-        id: "456",
-        title: "Order food",
-        mode: "user",
-        image: "https://links.papareact.com/28w",
-        screen: "EatsScreen"
-    },
+    // {
+    //     id: "456",
+    //     title: "Order food",
+    //     mode: "user",
+    //     image: require('../assets/ride.png'),
+    //     screen: "EatsScreen"
+    // },
 ]
 
 const driverData = [
@@ -29,7 +30,7 @@ const driverData = [
         id: "123",
         title: "Find rides",
         mode: "driver",
-        image: "https://links.papareact.com/3pn",
+        image: require('../assets/ride.png'),
         screen: "RideRequestScreen"
     },
 ]
@@ -38,7 +39,7 @@ const driverData = [
 const Item = ({image, title, screen, nav, hasOrigin, driverEnabled }) => ( 
     <TouchableOpacity
         onPress={() => nav.navigate(screen)}
-        style={tw`${driverEnabled ? "w-80 items-center pl-6 pb-8 pt-4 bg-gray-200 m-0" : "w-40 p-2 pl-6 pb-8 pt-4 bg-gray-200 m-2"}`}
+        style={tw`${driverEnabled ? "w-80 items-center pl-6 pb-8 pt-4 bg-gray-200 m-0" : "w-80 p-2 pl-6 pb-8 pt-4 bg-gray-200 m-2"}`}
         disabled={!hasOrigin && !driverEnabled}
     >
             <View
@@ -46,15 +47,15 @@ const Item = ({image, title, screen, nav, hasOrigin, driverEnabled }) => (
             >
                 <Image 
                     style={[tw`${driverEnabled ? "-mt-6 -ml-6" : "mt-2"}`, {width: 120, height: 120, resizeMode: 'contain',  alignSelf: 'center'}]}
-                    source={{ uri: image}}
+                    source={image}
                 />
                 <Text 
-                    style={tw`${driverEnabled ? "text-center mt-2 text-xl font-bold -ml-6" : "mt-2 text-lg font-semibold"}`}
+                    style={tw`${driverEnabled ? "text-center mt-2 text-xl font-bold -ml-6" : "text-center mt-2 text-lg font-semibold -ml-6"}`}
                 >
                     { title }
                 </Text>
                 <Icon 
-                    style={tw`${driverEnabled ? "text-center mr-6 p-2 bg-black rounded-full w-60 mt-4" : "p-2 bg-black rounded-full w-10 mt-4"}`}
+                    style={tw`${driverEnabled ? "text-center mr-6 p-2 bg-black rounded-full w-60 mt-4" : "text-center ml-4 p-2 bg-black rounded-full w-60 mt-4"}`}
                     name='arrowright' color='white' type='antdesign'
                 />
             </View>

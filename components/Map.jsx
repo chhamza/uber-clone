@@ -6,6 +6,7 @@ import { selectDestination, selectOrigin, setTravelTimeInformation } from "../sl
 import { useRef, useEffect } from 'react';
 import MapViewDirections from 'react-native-maps-directions';
 import { useDispatch } from 'react-redux';
+import Constants from 'expo-constants';
 
 const Map = () => {
     const origin = useSelector(selectOrigin);
@@ -14,7 +15,7 @@ const Map = () => {
     const destination = useSelector(selectDestination);
     const destlat = parseFloat(destination?.locationLat) || 0;
     const destlon = parseFloat(destination?.locationLon) || 0;
-    const GOOGLE_MAPS_APIKEY = 'AIzaSyCc1J0aHBWbo6oqY05RtR1898n-UvLyR-U';
+    const GOOGLE_MAPS_APIKEY = Constants.expoConfig?.extra?.googleMapsApiKey;
     const mapRef = useRef(null);
     const  originCombined = origin?.locationLat ?  [parseFloat(origin?.locationLat), parseFloat(origin?.locationLon)] : 0;
     const  destCombined = destination?.locationLat ? [parseFloat(destination.locationLat), parseFloat(destination.locationLon)] : 0;
